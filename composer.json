@@ -1,0 +1,33 @@
+{
+    "name": "sarhan/oauth2-docusign",
+    "description": "Docusign OAuth2 provider for League OAuth2 Client",
+    "keywords": ["docusign", "oauth", "oauth2"],
+    "require": {
+        "league/oauth2-client": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "mockery/mockery": "^1.2"
+    },
+    "homepage": "https://github.com/AlaaSarhan/oauth2-docusign",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alaa Sarhan",
+            "email": "sarhan.alaa@protonmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sarhan\\OAuth2\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sarhan\\OAuth2\\Client\\Test\\": "test/src/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
