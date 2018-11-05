@@ -1,3 +1,21 @@
+build:
+  nodes:
+    coverage:
+      tests:
+        override:
+          - command: composer test
+            coverage:
+              file: build/coverage/log/coverage.xml
+              format: clover
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
+          - phpcs-run
+
+checks:
+
+
 filter:
     excluded_paths:
         - 'test/*'
