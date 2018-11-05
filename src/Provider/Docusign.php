@@ -23,7 +23,7 @@ class Docusign extends AbstractProvider
 
 	const SCOPE_SIGNATURE = 'signature';
 	const SCOPE_EXTENDED = 'extended';
-	const SCOPE_impersonation = 'impersonation';
+	const SCOPE_IMPERSONATION = 'impersonation';
 	const SCOPES_DEFAULT = [
 		self::SCOPE_SIGNATURE,
 		self::SCOPE_EXTENDED
