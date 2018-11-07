@@ -21,7 +21,7 @@ class DocusignUser implements ResourceOwnerInterface
     /**
      * @inheritDoc
      */
-    public function getId() : string
+    public function getId()
     {
         return $this->userInfo['sub'];
     }
@@ -29,17 +29,17 @@ class DocusignUser implements ResourceOwnerInterface
     /**
      * @inheritDoc
      */
-    public function toArray() : array
+    public function toArray()
     {
         return $this->userInfo;
     }
 
-    public function getName() : string
+    public function getName()
     {
         return $this->userInfo['name'];
     }
 
-    public function getEmail() : string
+    public function getEmail()
     {
         return $this->userInfo['email'];
     }
@@ -49,7 +49,7 @@ class DocusignUser implements ResourceOwnerInterface
      *
      * @return array|null
      */
-    public function getDefaultAccount() : ?array
+    public function getDefaultAccount()
     {
         foreach ($this->userInfo['accounts'] as $account) {
             if ($account['is_default']) {
@@ -60,7 +60,10 @@ class DocusignUser implements ResourceOwnerInterface
         return null;
     }
 
-    public function getToken() : AccessToken
+    /**
+     * @return AccessToken
+     */
+    public function getToken()
     {
         return $this->token;
     }
