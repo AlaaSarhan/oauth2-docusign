@@ -35,7 +35,7 @@ class Docusign extends AbstractProvider
     /**
      * @inheritDoc
      */
-    public function getBaseAuthorizationUrl() : string
+    public function getBaseAuthorizationUrl()
     {
         return $this->getUrl(self::ENDPOINT_AUTHORIZTION);
     }
@@ -43,7 +43,7 @@ class Docusign extends AbstractProvider
     /**
      * @inheritDoc
      */
-    public function getBaseAccessTokenUrl(array $params) : string
+    public function getBaseAccessTokenUrl(array $params)
     {
         return $this->getUrl(self::ENDPOINT_ACCESS_TOKEN);
     }
@@ -51,7 +51,7 @@ class Docusign extends AbstractProvider
     /**
      * @inheritDoc
      */
-    public function getResourceOwnerDetailsUrl(AccessToken $token) : string
+    public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
         return $this->getUrl(self::ENDPOINT_RESOURCE_OWNER_DETAILS);
     }
@@ -96,7 +96,7 @@ class Docusign extends AbstractProvider
         return ['Authorization' => 'Basic ' . $this->getBasicAuth()];
     }
 
-    private function getBasicAuth() : string
+    private function getBasicAuth()
     {
         return base64_encode(sprintf('%s:%s', $this->clientId, $this->clientSecret));
     }
