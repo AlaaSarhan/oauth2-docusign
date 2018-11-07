@@ -7,9 +7,9 @@ use League\OAuth2\Client\Token\AccessToken;
 
 class DocusignUserTest extends \PHPUnit\Framework\TestCase
 {
-	private $token;
-	private $user;
-	private $userInfo = [
+    private $token;
+    private $user;
+    private $userInfo = [
         'sub' => '564f7988-0823-409a-ac8a',
         'name' => 'Example J Smith',
         'given_name' => 'Example',
@@ -32,41 +32,41 @@ class DocusignUserTest extends \PHPUnit\Framework\TestCase
         ]
     ];
 
-	public function setUp()
-	{
-		$this->token = new AccessToken(
-			['access_token' => 'YTdhNWQ1NzUtY2E0Yy00ZmUxLThkMDAtYzZ']
-		);
-		$this->user = new DocusignUser($this->userInfo, $this->token);
-	}
+    public function setUp()
+    {
+        $this->token = new AccessToken(
+            ['access_token' => 'YTdhNWQ1NzUtY2E0Yy00ZmUxLThkMDAtYzZ']
+        );
+        $this->user = new DocusignUser($this->userInfo, $this->token);
+    }
 
-	public function testGetId()
-	{
-		$this->assertEquals('564f7988-0823-409a-ac8a', $this->user->getId());
-	}
+    public function testGetId()
+    {
+        $this->assertEquals('564f7988-0823-409a-ac8a', $this->user->getId());
+    }
 
-	public function testToArray()
-	{
-		$this->assertEquals($this->userInfo, $this->user->toArray());
-	}
+    public function testToArray()
+    {
+        $this->assertEquals($this->userInfo, $this->user->toArray());
+    }
 
-	public function testGetName()
-	{
-		$this->assertEquals('Example J Smith', $this->user->getName());
-	}
+    public function testGetName()
+    {
+        $this->assertEquals('Example J Smith', $this->user->getName());
+    }
 
-	public function testGetEmail()
-	{
-		$this->assertEquals('Example.Smith@exampledomain.com', $this->user->getEmail());
-	}
+    public function testGetEmail()
+    {
+        $this->assertEquals('Example.Smith@exampledomain.com', $this->user->getEmail());
+    }
 
-	public function testGetDefaultAccount()
-	{
-		$this->assertEquals($this->userInfo['accounts'][1], $this->user->getDefaultAccount());
-	}
+    public function testGetDefaultAccount()
+    {
+        $this->assertEquals($this->userInfo['accounts'][1], $this->user->getDefaultAccount());
+    }
 
-	public function testGetToken()
-	{
-		$this->assertEquals($this->token, $this->user->getToken());
-	}
+    public function testGetToken()
+    {
+        $this->assertEquals($this->token, $this->user->getToken());
+    }
 }
