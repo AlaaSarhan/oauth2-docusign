@@ -71,7 +71,8 @@ if (!isset($_GET['code'])) {
 }
 ```
 
-## Refreshing a Token
+### Refreshing a Token
+
 ```php
 $provider = new \Sarhan\OAuth2\Client\Provider\Docusign([
     'clientId'          => '{docusign-integrator-key}',
@@ -83,6 +84,22 @@ $token = $provider->getAccessToken('refresh_token', [
 	'refresh_token' => '{refresh token}'
 ]);
 ```
+
+## Vendor specific options
+
+`sandbox`
+
+when passed with `true` to the provider constructor, the provider will direct docuaign endpoint calls to docusign sandbox domain (account-d.docusign.com).
+
+```php
+$provider = new \Sarhan\OAuth2\Client\Provider\Docusign([
+    'clientId'          => '{docusign-integrator-key}',
+    'clientSecret'      => '{docusign-integrator-key-secret}',
+    'redirectUri'       => 'https://example.com/callback-url',
+    'sandbox'           => true
+]);
+```
+
 
 ## Testing
 
