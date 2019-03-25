@@ -70,7 +70,7 @@ class Docusign extends AbstractProvider
      * @see Docusign::getRequest
      * @see Docusign::getResponse
      */
-    public function getUrl(string $path)
+    public function getUrl($path)
     {
         return sprintf(
             '%s/%s',
