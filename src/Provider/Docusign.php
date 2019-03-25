@@ -13,7 +13,7 @@ class Docusign extends AbstractProvider
     use BearerAuthorizationTrait {
         getAuthorizationHeaders as getTokenBearerAuthorizationHeaders;
     }
-    
+
     const URL_ROOT = 'https://account.docusign.com/oauth';
     const URL_ROOT_SANDBOX = 'https://account-d.docusign.com/oauth';
 
@@ -56,7 +56,21 @@ class Docusign extends AbstractProvider
         return $this->getUrl(self::ENDPOINT_RESOURCE_OWNER_DETAILS);
     }
 
-    public function getUrl($path)
+    /**
+     * Returns a full url for the given path, with the appropriate docusign
+     * backennd.
+     *
+     * It can be used in combination of getRequest and getResponse methods
+     * to make further calls to docusign endpoint using the given token.
+     *
+     * @param string $path
+     *
+     * @return string
+     *
+     * @see Docusign::getRequest
+     * @see Docusign::getResponse
+     */
+    public function getUrl(string $path)
     {
         return sprintf(
             '%s/%s',

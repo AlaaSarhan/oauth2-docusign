@@ -50,12 +50,12 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
             [
                 new Docusign(['sandbox' => false]),
                 'path/to/endpoint',
-                Docusign::URL_ROOT . '/path/to/endpoint'
+                'https://account.docusign.com/oauth/path/to/endpoint'
             ],
             [
                 new Docusign(['sandbox' => true]),
                 'path/to/endpoint',
-                Docusign::URL_ROOT_SANDBOX . '/path/to/endpoint'
+                'https://account-d.docusign.com/oauth/path/to/endpoint'
             ]
         ];
     }
@@ -98,7 +98,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
     public function testGetBaseAuthorizationUrl()
     {
         $this->assertStringEndsWith(
-            Docusign::ENDPOINT_AUTHORIZTION,
+            'auth',
             $this->provider->getBaseAuthorizationUrl()
         );
     }
@@ -106,7 +106,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
     public function testGetBaseAccessTokenUrl()
     {
         $this->assertStringEndsWith(
-            Docusign::ENDPOINT_ACCESS_TOKEN,
+            'token',
             $this->provider->getBaseAccessTokenUrl([])
         );
     }
@@ -114,7 +114,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
     public function testGetResourceOwnerDetailsUrl()
     {
         $this->assertStringEndsWith(
-            Docusign::ENDPOINT_RESOURCE_OWNER_DETAILS,
+            'userinfo',
             $this->provider->getResourceOwnerDetailsUrl($this->token)
         );
     }
@@ -133,7 +133,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             $params['scope'],
-            join(Docusign::SCOPES_SEPARATOR, Docusign::SCOPES_DEFAULT)
+            'signature extended'
         );
     }
 
@@ -164,7 +164,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
         $this->responseProphecy->getBody()->willReturn(json_encode($this->userInfo));
 
         $resourceOwner = $this->provider->getResourceOwner($this->token);
-        
+
         $this->assertEquals($this->userInfo, $resourceOwner->toArray());
     }
 }
