@@ -28,3 +28,8 @@ before_script:
 script:
   - ./vendor/bin/phpunit
   - ./vendor/bin/phpcs -sp
+
+branches:
+  only:
+  - master
+  - next
