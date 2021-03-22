@@ -60,7 +60,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
         ];
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->provider = new Docusign($this->options);
         $this->token = new AccessToken(
