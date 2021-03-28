@@ -5,7 +5,6 @@ namespace Sarhan\OAuth2\Client\Test\Provider;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Sarhan\OAuth2\Client\Provider\Docusign;
@@ -13,8 +12,6 @@ use Sarhan\OAuth2\Client\Test\Double\ResponseDouble;
 
 class DocusignTest extends \PHPUnit\Framework\TestCase
 {
-    use ProphecyTrait;
-
     private $options = [
         'clientId' => '7c2b8d7e-83c3-4940-af5e',
         'clientSecret' => 'd7014634-3919-46f6-b766',
