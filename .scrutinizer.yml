@@ -3,7 +3,7 @@ build:
     coverage:
       tests:
         override:
-          - command: composer test
+          - command: XDEBUG_MODE=coverage composer test
             coverage:
               file: build/coverage/log/coverage.xml
               format: clover
