@@ -4,6 +4,7 @@ namespace Sarhan\OAuth2\Client\Test\Provider;
 
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Token\AccessToken;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Sarhan\OAuth2\Client\Provider\Docusign;
@@ -60,7 +61,7 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
         ];
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->provider = new Docusign($this->options);
         $this->token = new AccessToken(
@@ -146,14 +147,13 @@ class DocusignTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @expectedException League\OAuth2\Client\Provider\Exception\IdentityProviderException
-     */
     public function testCheckResponseThrowsExceptionOnFailure()
     {
         $this->setupHttpClient();
         $this->responseProphecy->getStatusCode()->willReturn(400);
         $this->responseProphecy->getReasonPhrase()->willReturn('Bad Request');
+
+        $this->expectException(IdentityProviderException::class);
 
         $this->provider->getParsedResponse($this->requestProphecy->reveal());
     }

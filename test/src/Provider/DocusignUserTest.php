@@ -32,7 +32,7 @@ class DocusignUserTest extends \PHPUnit\Framework\TestCase
         ]
     ];
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->token = new AccessToken(
             ['access_token' => 'YTdhNWQ1NzUtY2E0Yy00ZmUxLThkMDAtYzZ']
