@@ -90,7 +90,7 @@ class Docusign extends AbstractProvider
             throw new IdentityProviderException(
                 $response->getReasonPhrase(),
                 $response->getStatusCode(),
-                $response->getReasonPhrase()
+                \json_decode((string) $response->getBody(), true)
             );
         }
     }
