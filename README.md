@@ -2,7 +2,6 @@
 
 [![Latest Version](https://img.shields.io/github/release/AlaaSarhan/oauth2-docusign.svg?style=flat-square)](https://github.com/AlaaSarhan/oauth2-docusign/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://travis-ci.org/AlaaSarhan/oauth2-docusign.svg?branch=master)](https://travis-ci.org/AlaaSarhan/oauth2-docusign)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/AlaaSarhan/oauth2-docusign.svg?style=flat-square)](https://scrutinizer-ci.com/g/AlaaSarhan/oauth2-docusign/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/AlaaSarhan/oauth2-docusign.svg?style=flat-square)](https://scrutinizer-ci.com/g/AlaaSarhan/oauth2-docusign)
 [![Total Downloads](https://img.shields.io/packagist/dt/sarhan/oauth2-docusign.svg?style=flat-square)](https://packagist.org/packages/sarhan/oauth2-docusign)
